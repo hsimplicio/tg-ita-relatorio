@@ -28,7 +28,7 @@ Segundo \cite{betts_practical_2010}, o Problema de Controle Ótimo pode ser form
             \mathbf{x}^{(i)}(t) \\
             \mathbf{u}^{(i)}(t)
         \end{aligned}
-    \right]
+    \right],
 \end{equation*}
 
 \noindent composto por $n_x^{(i)}$ variáveis de estado e por $n_u^{(i)}$ variáveis de controle, respectivamente. Além disso, o sistema pode conter $n_p^{(i)}$ parâmetros $\mathbf{p}^{(i)}$, os quais são independentes de $t$.
@@ -36,10 +36,10 @@ Segundo \cite{betts_practical_2010}, o Problema de Controle Ótimo pode ser form
 Normalmente, as dinâmicas do sistema são definidas por um conjunto de EDOs, chamadas de \textit{equações de estado}:
 
 \begin{equation*}
-    \dot{\mathbf{x}}^{(i)} = \mathbf{f}^{(i)} \left[ \mathbf{x}^{(i)}(t), \mathbf{u}^{(i)}(t), \mathbf{p}^{(i)}, t \right],
+    \dot{\mathbf{x}}^{(i)} = \mathbf{f}^{(i)} \left[ \mathbf{x}^{(i)}(t), \mathbf{u}^{(i)}(t), \mathbf{p}^{(i)}, t \right].
 \end{equation*}
 
-A formulação geral do Problema de Controle Ótimo com $N$ fases que a biblioteca implementada neste trabalho é descrita em \cite{becerra_psopt_2022} e apresentada a seguir.
+A formulação geral do Problema de Controle Ótimo com $N$ fases utilizada neste trabalho é descrita em \cite{becerra_psopt_2022} e apresentada a seguir.
 
 \subsection*{Problema $\mathcal{P}_1$}
 \label{subsec:problema-1}
@@ -53,22 +53,30 @@ A formulação geral do Problema de Controle Ótimo com $N$ fases que a bibliote
         + \int_{t_0^{(i)}}^{t_f^{(i)}} L^{(i)} \left[ \mathbf{x}^{(i)}(t), \mathbf{u}^{(i)}(t), \mathbf{p}^{(i)}, t \right] \, dt
     \right]
 \end{equation}
+% In general, an objective function can include two terms: a boundary objective J(·)
+% and a path integral along the entire trajectory, with the integrand w(·). A problem
+% with both terms is said to be in Bolza form. A problem with only the integral term
+% is said to be in Lagrange form, and a problem with only a boundary term is said toDownloaded 06/23/23 to 201.75.182.207 . Redistribution subject to SIAM license or copyright; see https://epubs.siam.org/terms-privacy
+% 854
+% MATTHEW KELLY
+% be in Mayer form [5]. The examples in this paper are all in Lagrange form:
+\noindent onde $\varphi(\cdot)$ representa a função objetivo de fronteira e $L(\cdot)$ o integrando da integral de caminho ao longo da trajetória \cite{kelly_introduction_2017}. 
 
-\noindent O problema está sujeito às restrições diferenciais:
+\noindent O problema está sujeito às restrições diferenciais
 
 \begin{equation}
 \label{eq:restrições-diferenciais}
     \dot{\mathbf{x}}^{(i)}(t) = \mathbf{f}^{(i)} \left[ \mathbf{x}^{(i)}(t), \mathbf{u}^{(i)}(t), \mathbf{p}^{(i)}, t \right], \, t \in \left[ t_0^{(i)}, t_f^{(i)} \right],
 \end{equation}
 
-\noindent às restrições de trajetória:
+\noindent às restrições de trajetória
 
 \begin{equation}
 \label{eq:restrições-trajetória}
     \mathbf{g}_L^{(i)} \leq \mathbf{g}^{(i)} \left[ \mathbf{x}^{(i)}(t), \mathbf{u}^{(i)}(t), \mathbf{p}^{(i)}, t \right] \leq \mathbf{g}_U^{(i)}, \, t \in \left[ t_0^{(i)}, t_f^{(i)} \right],
 \end{equation}
 
-\noindent às restrições de evento:
+\noindent às restrições de evento
 
 \begin{equation}
 \label{eq:restrições-evento}
@@ -82,7 +90,7 @@ A formulação geral do Problema de Controle Ótimo com $N$ fases que a bibliote
      t_f^{(i)} \right] \leq \mathbf{e}_U^{(i)},
 \end{equation}
 
-\noindent às restrições de ligação de fase:
+\noindent às restrições de ligação de fase
 
 \begin{equation}
 \label{eq:restrições-fase}
@@ -93,11 +101,11 @@ A formulação geral do Problema de Controle Ótimo com $N$ fases que a bibliote
         & \mathbf{x}^{(2)} \left( t_f^{(2)} \right), \mathbf{u}^{(2)} \left( t_f^{(2)} \right), \mathbf{p}^{(2)}, t_0^{(2)}, t_f^{(2)}, \\
         & \vdots \\
         & \mathbf{x}^{(N)} \left( t_0^{(N)} \right), \mathbf{u}^{(N)} \left( t_0^{(N)} \right), \\
-        & \mathbf{x}^{(N)} \left( t_f^{(N)} \right), \mathbf{u}^{(N)} \left( t_f^{(N)} \right), \mathbf{p}^{(N)}, t_0^{(N)}, t_f^{(N)} ] \leq \boldsymbol{\psi}_U
+        & \mathbf{x}^{(N)} \left( t_f^{(N)} \right), \mathbf{u}^{(N)} \left( t_f^{(N)} \right), \mathbf{p}^{(N)}, t_0^{(N)}, t_f^{(N)} ] \leq \boldsymbol{\psi}_U ,
 \end{aligned}
 \end{equation}
 
-\noindent às restrições de limite:
+\noindent às restrições de limite
 
 \begin{gather}
     \mathbf{u}_L^{(i)} \leq \mathbf{u}^{(i)}(t) \leq \mathbf{u}_U^{(i)}, \, t \in \left[ t_0^{(i)}, t_f^{(i)} \right], \nonumber \\
@@ -107,7 +115,7 @@ A formulação geral do Problema de Controle Ótimo com $N$ fases que a bibliote
     t_{f_L}^{(i)} \leq t_f^{(i)} \leq t_{f_U}^{(i)}, \nonumber
 \end{gather}
 
-\noindent e às seguintes restrições:
+\noindent e às seguintes restrições
 
 \begin{equation}
 \begin{aligned}
@@ -144,7 +152,7 @@ Antes de apresentar a discretização das funções usando a colocação trapezo
 \end{equation}
 
 % Visando um formato que se encaixe na descrição de um problema de PNL, como apresentado, iniciamos a discretização das funções do PCO.
-Por simplicidade e clareza, dispensaremos a notação $(i)$, indicativa da fase. Iniciando a discretização das funções do PCO, seguindo o exposto em \cite{betts_practical_2010}, a duração da fase é dividida em $n_s$ segmentos
+Por simplicidade e clareza, dispensaremos a notação $(i)$, indicativa da fase, na sequência deste documento. Iniciando a discretização das funções do PCO, seguindo o exposto em \cite{betts_practical_2010}, a duração da fase é dividida em $n_s$ segmentos
 
 \begin{equation}
     \label{eq:tempo-disc}
@@ -178,13 +186,13 @@ As primeiras $n_x n_s$ restrições exigem que os vetores $\boldsymbol{\zeta}$ s
 Focando no método trapezoidal, a variável de controle é discretizada usando uma \textit{spline} linear 
 
 \begin{equation}
-    \mathbf{u}(t) \approx \mathbf{u}_k + \dfrac{\tau}{h_k} (\mathbf{u}_{k+1} - \mathbf{u}_k)
+    \mathbf{u}(t) \approx \mathbf{u}_k + \dfrac{\tau}{h_k} (\mathbf{u}_{k+1} - \mathbf{u}_k),
 \end{equation}
 
 \noindent onde $\tau \equiv t - t_k$ e $h_k \equiv t_{k+1} - t_k$, e a variável de estado é discretizada usando uma \textit{spline} quadrática
 
 \begin{equation}
-    \mathbf{f}(t) = \dot{\mathbf{x}}(t) \approx \mathbf{f}_k + \dfrac{\tau}{h_k} (\mathbf{f}_{k+1} - \mathbf{f}_k)
+    \mathbf{f}(t) = \dot{\mathbf{x}}(t) \approx \mathbf{f}_k + \dfrac{\tau}{h_k} (\mathbf{f}_{k+1} - \mathbf{f}_k).
 \end{equation}
 
 \begin{figure}[H]
