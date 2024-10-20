@@ -1,0 +1,42 @@
+\section{Motivação}
+\label{sec:motivação}
+
+
+
+
+\section{Objetivo}
+\label{sec:objetivo}
+
+Este trabalho tem como objetivo a implementação de uma biblioteca no MATLAB, que permita a solução de problemas de otimização de trajetória utilizando um método de colocação direta, mais especificamente a colocação trapezoidal. Inspirando-se nos softwares PSOPT \cite{becerra_psopt_2022} e OptimTraj \cite{kelly_optimtraj_2022}, tal biblioteca deverá simplificar a resolução de problemas do tipo, de modo que o usuário deverá apenas modelizar o problema e entrar com os parâmetros necessários por meio de uma interface de dados. Assim, não haverá necessidade de implementar a lógica matemática por trás da solução numérica para obtenção dos resultados pertinentes.
+
+
+\section{Revisão Bibliográfica}
+\label{sec:rev-bibliografica}
+
+Esta seção apresenta uma revisão histórica da otimização de trajetórias, com foco especial na modelagem do problema como um Problema de Controle Ótimo (PCO) e nas técnicas de solução, tanto analíticas quanto numéricas, que culminam na proposta de implementação de métodos de colocação direta usando o software MATLAB.
+
+% Origens e Fundamentos
+
+Iniciamos com as origens da otimização de trajetórias e a modelagem inicial do problema como um PCO. O estudo da otimização de trajetórias tem início com o problema da braquistócrona: encontrar a curva sob a qual uma partícula, sujeita a um campo gravitacional constante, sem atrito e com velocidade inicial nula, leva o menor tempo para se deslocar entre dois pontos \cite{sussmann_300_1997}. Dentre as soluções propostas, a mais famosa usava o Cálculo Variacional.
+
+Por sua vez, o Controle Ótimo tem sua origem ligada ao desenvolvimento do Cálculo Variacional, uma vez que o objetivo do primeiro é minimizar (ou maximizar) uma função objetivo, o que, por sua vez, é o tema estudado pelo segundo. Isaac Newton, Johann Bernoulli, Leonhard Euler e Ludovico Lagrange são alguns importantes nomes que inicialmente contribuíram para o desenvolvimento do Controle Ótimo \cite{becerra_optimal_2008}. Como resultados importantes obtidos no desenvolvimento da teoria, podem-se citar a programação dinâmica \cite{bellman_dynamic_2010}, o princípio mínimo de Pontryagin \cite{pontryagin_mathematical_1987} e a formulação do regulador quadrático linear (\textit{Linear-quadratic Regulator}, LQR) e do filtro de Kalman \cite{kalman_contributions_1960, kalman_new_1960}.
+
+% Soluções Analíticas
+
+Existem diversas excelentes fontes que desenvolvem a teoria do Controle Ótimo, formulando diferentes tipos de problemas e suas soluções \cite{betts_practical_2010, kirk_optimal_2004, bryson_applied_2018, athans_optimal_2007}. Dentre os PCOs, há alguns casos específicos para os quais pode-se obter uma solução totalmente analítica. Como os mais conhecidos, têm-se os sistemas escalares lineares e o regulador quadrático linear, com possíveis variações nas condições de contorno \cite{lewis_optimal_2012}.
+
+% Soluções Numéricas
+
+Com o advento do computador digital, tornou-se viável a solução de sistemas dinâmicos mais complexos e, consequentemente, de tratar problemas mais realistas. Os métodos numéricos desenvolvidos para solução de PCOs são, normalmente, classificados em duas categorias: os métodos indiretos e os métodos diretos \cite{betts_practical_2010}. Dentre aqueles classificados como indiretos, podem-se citar o \textit{shooting} indireto e a colocação indireta. Por sua vez, dentre os classificados como diretos há maior variedade, como os métodos de colocação direta, o \textit{shooting} direto, os métodos pseudoespectrais \cite{betts_survey_1998} e a quasilinearização \cite{paine_application_1967}. 
+
+
+% Colocação Direta e Aplicações em MATLAB
+
+Finalmente, nos concentramos na colocação direta como uma abordagem numérica para resolver PCOs. Nos métodos diretos, o problema de otimização de trajetória é discretizado, transformando-o em um problema de Programação Não-Linear (PNL). Os métodos de colocação direta não são diferentes. Neles, as funções contínuas que definem o problema são discretizadas usando vários segmentos polinomiais, construindo a função conhecida como \textit{spline}. Dentre os métodos de discretização que se classificam como colocação direta, dois têm maior notoriedade: a colocação trapezoidal e a colocação de Hermite-Simpson \cite{kelly_introduction_2017, betts_practical_2010}.
+
+Quanto a rotinas que implementam soluções numéricas e problemas exemplos disponibilizados, \cite{lewis_optimal_2012} traz diversas rotinas em MATLAB, tanto para simulação de problemas usando resultados obtidos, quanto para implementação de métodos de solução numérica. \cite{becerra_psopt_2022} implementa o PSOPT, um software completo escrito em C++, apresentando uma interface de dados que permite a construção facilitada de problemas distintos e disponibilizando diferentes métodos de solução, como o pseudoespectral e as colocações trapezoidal e de Hermit-Simpson. \cite{kelly_optimtraj_2022} é também um software completo escrito em MATLAB, que apresenta exemplos variados e permite a escolha dentre diversos métodos de solução. Além disso, em \cite{kelly_introduction_2017}, o autor objetiva ensinar sobre a implementação de métodos de colocação direta para solução de problemas de otimização de trajetória, de modo que apresenta explicações claras e focadas no assunto, além de vários exemplos de problemas e rotinas em MATLAB.
+
+
+% Considerações Finais da Revisão
+
+% Ao finalizar esta revisão, é possível constatar que [fazer uma síntese das principais descobertas e lacunas identificadas]. A proposta de implementação de métodos de colocação direta para otimização de trajetória usando o MATLAB é uma contribuição relevante, visando [inserir objetivos e contribuições esperadas do seu trabalho].
