@@ -106,9 +106,77 @@ Conforme a figura \ref{fig:evtol-forças}, a dinâmica do sistema pode ser descr
 \end{aligned}
 \end{equation}
 
-Para finalizar a formulação do problema de otimização de trajetória, dado que se almeja o consumo mínimo da bateria, define-se a função objetivo como
+Para finalizar a formulação do PCO, dado que se almeja o consumo mínimo da bateria, define-se a função objetivo como
 
 \begin{equation}
-    J(\mathbf{z}) = E.
+    J\left[ \mathbf{x} \left( t_f \right) \right] = E_f.
+\end{equation}
+
+\section{Movimento simples em uma dimensão}
+\label{sec:movimento-simples}
+
+\begin{equation}
+    \mathbf{x} = \left[
+        \begin{aligned}
+            s_x \\
+            v_x
+        \end{aligned}
+    \right]
+\end{equation}
+
+\begin{equation}
+    \mathbf{u} = \left[
+        \begin{aligned}
+            F
+        \end{aligned}
+    \right]
+\end{equation}
+
+\begin{equation}
+    \dot{\mathbf{x}} = \left[
+        \begin{aligned}
+            v \\
+            F/m
+        \end{aligned}
+    \right]
+\end{equation}
+
+\begin{equation}
+    J = \int_{t_0}^{t_f} \left[ F^2 \right] dt.
+\end{equation}
+
+\section{Braquistócrona}
+\label{sec:braquistocrona}
+
+\begin{equation}
+    \mathbf{x} = \left[
+        \begin{aligned}
+            s_x \\
+            s_y \\
+            v
+        \end{aligned}
+    \right]
+\end{equation}
+
+\begin{equation}
+    \mathbf{u} = \left[
+        \begin{aligned}
+            \theta
+        \end{aligned}
+    \right]
+\end{equation}
+
+\begin{equation}
+    \dot{\mathbf{x}} = \left[
+        \begin{aligned}
+            v \cos(\theta) \\
+            v \sin(\theta) \\
+            -g \sin(\theta)
+        \end{aligned}
+    \right]
+\end{equation}
+
+\begin{equation}
+    J = t_f.
 \end{equation}
 

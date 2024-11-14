@@ -192,7 +192,13 @@ Focando no método trapezoidal, a variável de controle é discretizada usando u
 \noindent onde $\tau \equiv t - t_k$ e $h_k \equiv t_{k+1} - t_k$, e a variável de estado é discretizada usando uma \textit{spline} quadrática
 
 \begin{equation}
-    \mathbf{f}(t) = \dot{\mathbf{x}}(t) \approx \mathbf{f}_k + \dfrac{\tau}{h_k} (\mathbf{f}_{k+1} - \mathbf{f}_k).
+    \mathbf{f}(t) = \dot{\mathbf{x}}(t) \approx \mathbf{f}_k + \dfrac{\tau}{h_k} (\mathbf{f}_{k+1} - \mathbf{f}_k),
+\end{equation}
+
+\noindent que, ao ser integrada, resulta em
+
+\begin{equation}
+    \mathbf{x}(t) \approx \mathbf{x}_k + \mathbf{f}_k \tau + \dfrac{\tau^2}{2h_k} (\mathbf{f}_{k+1} - \mathbf{f}_k).
 \end{equation}
 
 \begin{figure}[H]
