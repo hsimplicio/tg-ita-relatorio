@@ -1,6 +1,6 @@
-Neste capítulo, são apresentados os resultados obtidos através da aplicação da biblioteca desenvolvida aos problemas exemplo descritos no Capítulo \ref{cap:metodologia}. Para cada problema, são mostrados os gráficos das trajetórias encontradas, bem como a evolução temporal das variáveis de estado e controle. Além disso, são feitas análises comparativas com resultados da literatura, quando disponíveis, e discussões sobre a qualidade das soluções obtidas.
+Neste capítulo, são apresentados os resultados obtidos através da aplicação da biblioteca desenvolvida aos problemas-exemplo descritos no Capítulo \ref{cap:metodologia}. Para cada problema, são mostrados os gráficos das trajetórias encontradas, bem como a evolução temporal das variáveis de estado e controle. Além disso, são feitas análises comparativas com resultados da literatura, quando disponíveis, e discussões sobre a qualidade das soluções obtidas.
 
-A apresentação dos resultados está organizada na mesma ordem dos problemas exemplo: inicialmente são mostrados os resultados do problema de movimento simples em uma dimensão na Seção \ref{subsec:movimento-simples}, em seguida os resultados do problema da braquistócrona na Seção \ref{subsec:braquistocrona}, e por fim os resultados do problema de trajetória do eVTOL na Seção \ref{subsec:evtol}. Para cada problema, são também discutidos aspectos específicos da implementação e eventuais desafios encontrados durante o processo de otimização.
+A apresentação dos resultados está organizada na mesma ordem dos problemas-exemplo: inicialmente, são mostrados os resultados do problema de movimento simples em uma dimensão na Seção \ref{subsec:movimento-simples}; em seguida, os resultados do problema da braquistócrona na Seção \ref{subsec:braquistocrona}; e, por fim, os resultados do problema de trajetória do eVTOL na Seção \ref{subsec:evtol}. Para cada problema, são também discutidos aspectos específicos da implementação e eventuais desafios encontrados durante o processo de otimização.
 
 \section{Movimento simples em uma dimensão}
 \label{sec:resultados-movimento-simples}
@@ -27,7 +27,7 @@ Como opções do solver, foram utilizados $n=30$ pontos de colocação, sem nece
 \section{Braquistócrona}
 \label{sec:resultados-braquistocrona}
 
-Para a resolução deste problema utilizou-se $m=1 \, \si{\kilo\gram}$, $s_{0}=(0,0) \, \si{\meter}$, $s_{f}=(5,-5) \, \si{\meter}$ e $v_0=0 \, \si{\meter\per\second}$ como parâmetros. Como chute inicial, utilizou-se uma parábola horizontal, como mostrado na Figura \ref{fig:resultados-braquistocrona-chute}.
+Para a resolução deste problema, utilizou-se $m=1 \, \si{\kilo\gram}$, $s_{0}=(0,0) \, \si{\meter}$, $s_{f}=(5,-5) \, \si{\meter}$ e $v_0=0 \, \si{\meter\per\second}$ como parâmetros. Como chute inicial, utilizou-se uma parábola horizontal, como mostrado na Figura \ref{fig:resultados-braquistocrona-chute}.
 
 \begin{figure}[H]
     \centering
@@ -58,7 +58,7 @@ Na Figura \ref{fig:resultados-braquistocrona-comparacao} é apresentada a compar
 \section{Trajetória do eVTOL}
 \label{sec:resultados-evtol}
 
-O problema considerado é o caso base do trabalho de referência, utilizando-se os mesmos parâmetros nele apresentados. Também, testou-se a utilização do mesmo chute inicial, mas sem sucesso. Desse modo, construiu-se um chute inicial que fosse fisicamente plausível utilizando-se um polinômio de terceiro grau para a trajetória e respeitando as relações entre as variáveis de estado e controle, como mostrado na Figura \ref{fig:resultados-evtol-chute}.
+O problema considerado é o caso base do trabalho de referência, utilizando-se os mesmos parâmetros nele apresentados. Testou-se também a utilização do mesmo chute inicial, mas sem sucesso. Desse modo, construiu-se um chute inicial fisicamente plausível utilizando-se um polinômio de terceiro grau para a trajetória e respeitando as relações entre as variáveis de estado e controle, como mostrado na Figura \ref{fig:resultados-evtol-chute}.
 
 \begin{figure}[H]
     \centering
