@@ -1,22 +1,9 @@
 Este trabalho apresentou o desenvolvimento de uma biblioteca em MATLAB para otimização de trajetórias, com foco em problemas de controle ótimo. A biblioteca foi implementada de forma modular e flexível, permitindo sua aplicação a diferentes tipos de problemas através de uma interface unificada.
 
-Os resultados obtidos nos problemas exemplo demonstraram a eficácia da biblioteca em encontrar soluções ótimas, com boa concordância com resultados analíticos quando disponíveis. O problema do movimento simples em uma dimensão serviu como validação inicial da implementação, enquanto o problema clássico da braquistócrona permitiu uma comparação direta com a solução analítica conhecida. Por fim, o problema mais complexo da trajetória do eVTOL demonstrou a capacidade da biblioteca em lidar com sistemas não-lineares e restrições mais elaboradas.
+Os resultados obtidos nos problemas exemplo demonstraram a eficácia da biblioteca em realizar a transcrição de problemas de otimização de trajetória para problemas de programação não-linear, permitindo sua solução através de métodos de otimização numérica. Quanto aos problemas propostos, obteve-se a solução ótima apenas para aqueles de menor complexidade. Para os problemas mais complexos, a solução encontrada não foi de boa qualidade, necessitando persistir na otimização dos parâmetros utilizados para o solver, ou ainda indicando falhas de implementação na biblioteca.
 
-Algumas das principais contribuições deste trabalho incluem:
-\begin{itemize}
-    \item Desenvolvimento de uma estrutura modular e extensível para problemas de otimização de trajetória
-    \item Implementação de diferentes métodos de discretização e técnicas de otimização
-    \item Interface unificada que facilita a definição e solução de novos problemas
-    \item Validação através de problemas exemplo com diferentes níveis de complexidade
-\end{itemize}
+Algumas das principais contribuições deste trabalho incluem o desenvolvimento de uma estrutura modular e extensível para problemas de otimização de trajetória, uma interface unificada que facilita a definição e solução de novos problemas, e a validação através de problemas exemplo com baixos níveis de complexidade.
 
-Como sugestões para trabalhos futuros, podem ser citadas:
-\begin{itemize}
-    \item Implementação de métodos adicionais de discretização
-    \item Incorporação de técnicas mais avançadas de otimização
-    \item Desenvolvimento de uma interface gráfica para facilitar a definição de problemas
-    \item Aplicação da biblioteca a problemas práticos mais complexos
-    \item Otimização do desempenho computacional para problemas de grande escala
-\end{itemize}
+Como sugestões para trabalhos futuros, sugere-se a verificação da implementação do escalonamento das variáveis de decisão, a depuração dos problemas exemplos mais complexos e a implementação de métodos adicionais de discretização, como o de Hermite-Simpson \cite{kelly_introduction_2017,betts_practical_2010}. Além disso, propõe-se o desenvolvimento de uma interface gráfica para facilitar a definição de problemas, a aplicação da biblioteca a outros problemas práticos mais complexos e a otimização do desempenho computacional para problemas de grande escala.
 
-Por fim, conclui-se que os objetivos iniciais do trabalho foram alcançados, resultando em uma ferramenta útil para o estudo e solução de problemas de otimização de trajetória. A biblioteca desenvolvida pode servir como base para futuros desenvolvimentos na área, tanto em contextos acadêmicos quanto em aplicações práticas.
+Por fim, conclui-se que os objetivos iniciais do trabalho foram parcialmente alcançados, resultando em uma ferramenta que fornece uma base para o estudo e solução de problemas de otimização de trajetória. A biblioteca desenvolvida pode servir como base para futuros estudos na área, desde que sejam corrigidos os problemas encontrados.
