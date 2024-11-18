@@ -119,12 +119,8 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
 \section{Arquivos de modelo}
 \label{sec:arquivos-modelo}
 
-
-\section{Arquivos do problema movimento simples}
-\label{sec:arquivos-problema-movimento-simples}
-
-\subsection{\texttt{mainSimpleMass.m}}
-\label{sec:codigo-mainsimplemass}
+\subsection{\texttt{mainTemplate.m}}
+\label{sec:codigo-maintemplate}
 
 \begin{code}
     \inputminted[
@@ -134,13 +130,13 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         bgcolor=light_bg,
         rulecolor=light_rule,
         linenos
-    ]{matlab}{AneA/codigos/simple_mass/mainSimpleMass.m}
-    \caption{Arquivo principal do problema movimento simples}
-    \label{code:mainsimplemass}
+    ]{matlab}{AneA/codigos/template/mainTemplate.m}
+    \caption{Arquivo principal do template}
+    \label{code:maintemplate}
 \end{code}
 
-\subsection{\texttt{simpleMassDynamics.m}}
-\label{sec:codigo-simplemassdynamics}
+\subsection{\texttt{templateDynamics.m}}
+\label{sec:codigo-templatedynamics}
 
 \begin{code}
     \inputminted[
@@ -150,9 +146,127 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         bgcolor=light_bg,
         rulecolor=light_rule,
         linenos
-    ]{matlab}{AneA/codigos/simple_mass/simpleMassDynamics.m}
-    \caption{Função \texttt{simpleMassDynamics}}
-    \label{code:simplemassdynamics}
+    ]{matlab}{AneA/codigos/template/templateDynamics.m}
+    \caption{Função \texttt{templateDynamics}}
+    \label{code:templatedynamics}
 \end{code}
+
+
+\subsection{\texttt{templateParams.m}}
+\label{sec:codigo-templateparams}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/template/templateParams.m}
+    \caption{Função \texttt{templateParams}}
+    \label{code:templateparams}
+\end{code}
+
+\subsection{\texttt{boundaryConstraints.m}}
+\label{sec:codigo-boundaryconstraints}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/template/boundaryConstraints.m}
+    \caption{Função \texttt{boundaryConstraints}}
+    \label{code:boundaryconstraints}
+\end{code}
+
+
+\subsection{\texttt{pathConstraints.m}}
+\label{sec:codigo-pathconstraints}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/template/pathConstraints.m}
+    \caption{Função \texttt{pathConstraints}}
+    \label{code:pathconstraints}
+\end{code}
+
+
+\subsection{\texttt{boundaryObjective.m}}
+\label{sec:codigo-boundaryobjective}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/template/boundaryObjective.m}
+    \caption{Função \texttt{boundaryObjective}}
+    \label{code:boundaryobjective}
+\end{code}
+
+\subsection{\texttt{pathObjective.m}}
+\label{sec:codigo-pathobjective}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/template/pathObjective.m}
+    \caption{Função \texttt{pathObjective}}
+    \label{code:pathobjective}
+\end{code}
+
+% \section{Arquivos do problema movimento simples}
+% \label{sec:arquivos-problema-movimento-simples}
+
+% \subsection{\texttt{mainSimpleMass.m}}
+% \label{sec:codigo-mainsimplemass}
+
+% \begin{code}
+%     \inputminted[
+%         frame=leftline,
+%         framesep=3mm,
+%         baselinestretch=1.2,
+%         bgcolor=light_bg,
+%         rulecolor=light_rule,
+%         linenos
+%     ]{matlab}{AneA/codigos/simple_mass/mainSimpleMass.m}
+%     \caption{Arquivo principal do problema movimento simples}
+%     \label{code:mainsimplemass}
+% \end{code}
+
+% \subsection{\texttt{simpleMassDynamics.m}}
+% \label{sec:codigo-simplemassdynamics}
+
+% \begin{code}
+%     \inputminted[
+%         frame=leftline,
+%         framesep=3mm,
+%         baselinestretch=1.2,
+%         bgcolor=light_bg,
+%         rulecolor=light_rule,
+%         linenos
+%     ]{matlab}{AneA/codigos/simple_mass/simpleMassDynamics.m}
+%     \caption{Função \texttt{simpleMassDynamics}}
+%     \label{code:simplemassdynamics}
+% \end{code}
 
 
