@@ -1,18 +1,3 @@
-% \begin{table}[h!]
-% \caption{Exemplo de uma Tabela}
-% \label{minhatab}
-% \center
-% \begin{tabular}{cccc}
-%   \hline
-% 	Parâmetro & Unidade & Valor da simulação & Valor experimental   \\
-% 	\hline
-%   Comprimento, $\alpha$ & $m$ &  $8,23$  & $8,54$ \\
-%   Altura, $\beta$ & $m$     &  $29,1$ & $28,3$\\
-% 	Velocidade, $v$ & $m/s$  &  $60,2$ & $67,3$\\
-% 	\hline
-% \end{tabular}
-% \end{table}
-
 O controle ótimo é uma disciplina fundamental na teoria de controle, com amplas aplicações em diversas áreas da engenharia e ciências aplicadas. Esta teoria lida com o problema de determinar a trajetória de controle que otimiza uma determinada medida de desempenho, sujeita às dinâmicas do sistema e às restrições impostas. A formulação geral do controle ótimo fornece uma base teórica robusta para resolver uma ampla gama de problemas de otimização, desde o controle de veículos autônomos até a gestão de recursos em sistemas complexos.
 
 Neste capítulo, será abordada, inicialmente, a formulação geral do controle ótimo, destacando os princípios e as equações que fundamentam a teoria. Em seguida, explora-se a formulação por colocação direta, uma técnica numérica eficiente para resolver problemas de controle ótimo, com foco especial no método de colocação trapezoidal. Esta abordagem não apenas simplifica a implementação computacional, mas também melhora a precisão e a estabilidade das soluções, tornando-a uma ferramenta valiosa para pesquisadores e profissionais na área de otimização de trajetórias.
@@ -23,12 +8,10 @@ Neste capítulo, será abordada, inicialmente, a formulação geral do controle 
 Segundo \cite{betts_practical_2010}, o Problema de Controle Ótimo pode ser formulado como um conjunto de $N$ fases. Para a fase $i$, o sistema dinâmico pode ser descrito como um conjunto de variáveis dinâmicas
 
 \begin{equation*}
-    \mathbf{z} = \left[
-        \begin{aligned}
-            \mathbf{x}^{(i)}(t) \\
-            \mathbf{u}^{(i)}(t)
-        \end{aligned}
-    \right],
+    \mathbf{z} = \begin{bmatrix}
+        \mathbf{x}^{(i)}(t) \\
+        \mathbf{u}^{(i)}(t)
+    \end{bmatrix},
 \end{equation*}
 
 \noindent composto por $n_x^{(i)}$ variáveis de estado e por $n_u^{(i)}$ variáveis de controle, respectivamente. Além disso, o sistema pode conter $n_p^{(i)}$ parâmetros $\mathbf{p}^{(i)}$, os quais são independentes de $t$.
@@ -49,17 +32,11 @@ A formulação geral do Problema de Controle Ótimo com $N$ fases utilizada nest
 \begin{equation}
     \label{eq:J}
     J = \sum_{i=1}^{N} \left[ 
-        \varphi^{(i)} \left[ \mathbf{x}^{(i)} \left( t_0^{(i)} \right), \mathbf{x}^{(i)} \left( t_f^{(i)} \right), \mathbf{p}^{(i)}, t_0^{(i)}, t_f^{(i)} \right]
-        + \int_{t_0^{(i)}}^{t_f^{(i)}} L^{(i)} \left[ \mathbf{x}^{(i)}(t), \mathbf{u}^{(i)}(t), \mathbf{p}^{(i)}, t \right] \, dt
+        \overbrace{\varphi^{(i)} \left[ \mathbf{x}^{(i)} \left( t_0^{(i)} \right), \mathbf{x}^{(i)} \left( t_f^{(i)} \right), \mathbf{p}^{(i)}, t_0^{(i)}, t_f^{(i)} \right]}^{\text{termo de Mayer}}
+        + \underbrace{\int_{t_0^{(i)}}^{t_f^{(i)}} L^{(i)} \left[ \mathbf{x}^{(i)}(t), \mathbf{u}^{(i)}(t), \mathbf{p}^{(i)}, t \right] \, dt}_{\text{termo de Lagrange}}
     \right]
 \end{equation}
-% In general, an objective function can include two terms: a boundary objective J(·)
-% and a path integral along the entire trajectory, with the integrand w(·). A problem
-% with both terms is said to be in Bolza form. A problem with only the integral term
-% is said to be in Lagrange form, and a problem with only a boundary term is said toDownloaded 06/23/23 to 201.75.182.207 . Redistribution subject to SIAM license or copyright; see https://epubs.siam.org/terms-privacy
-% 854
-% MATTHEW KELLY
-% be in Mayer form [5]. The examples in this paper are all in Lagrange form:
+
 \noindent onde $\varphi(\cdot)$ representa a função objetivo de fronteira e $L(\cdot)$ o integrando da integral de caminho ao longo da trajetória \cite{kelly_introduction_2017}. 
 
 \noindent O problema está sujeito às restrições diferenciais
@@ -170,18 +147,37 @@ Dessa forma, visando a transcrição para um problema de PNL, as equações dife
 
 \noindent onde
 
-\begin{equation}
-\begin{aligned}
-    \mathbf{c}(\mathbf{x}) =& \left[ \boldsymbol{\zeta}_1, \boldsymbol{\zeta}_2, \cdots, \boldsymbol{\zeta}_{M-1}, \mathbf{g}_1, \mathbf{g}_2, \cdots, \mathbf{g}_{M}, \mathbf{e}_0, \mathbf{e}_f, \boldsymbol{\psi}_0, \boldsymbol{\psi}_f \right]^\intercal \\
-    \mathbf{c}_L =& \left[ \mathbf{0}, \cdots, \mathbf{0}, \mathbf{g}_L, \cdots, \mathbf{g}_L, \mathbf{e}_L, \mathbf{e}_L, \boldsymbol{\psi}_L, \boldsymbol{\psi}_L \right]^\intercal \\
-    \mathbf{c}_U =& \left[ \mathbf{0}, \cdots, \mathbf{0}, \mathbf{g}_U, \cdots, \mathbf{g}_U, \mathbf{e}_U, \mathbf{e}_U, \boldsymbol{\psi}_U, \boldsymbol{\psi}_U \right]^\intercal
-\end{aligned}
-\end{equation}
+\begin{align}
+    \mathbf{c}_L &= 
+    \begin{bmatrix} 
+        \mathbf{0} \\ \mathbf{0} \\ \vdots \\ \mathbf{0} \\
+        \mathbf{g}_L \\ \mathbf{g}_L \\ \vdots \\ \mathbf{g}_L \\
+        \mathbf{e}_L \\ \mathbf{e}_L \\
+        \boldsymbol{\psi}_L \\ \boldsymbol{\psi}_L
+    \end{bmatrix}
+    &
+    \mathbf{c}(\mathbf{x}) &= 
+    \begin{bmatrix} 
+        \boldsymbol{\zeta}_1 \\ \boldsymbol{\zeta}_2 \\ \vdots \\ \boldsymbol{\zeta}_{M-1} \\ 
+        \mathbf{g}_1 \\ \mathbf{g}_2 \\ \vdots \\ \mathbf{g}_{M} \\
+        \mathbf{e}_0 \\ \mathbf{e}_f \\
+        \boldsymbol{\psi}_0 \\ \boldsymbol{\psi}_f
+    \end{bmatrix}
+    &
+    \mathbf{c}_U &= 
+    \begin{bmatrix} 
+        \mathbf{0} \\ \mathbf{0} \\ \vdots \\ \mathbf{0} \\
+        \mathbf{g}_U \\ \mathbf{g}_U \\ \vdots \\ \mathbf{g}_U \\
+        \mathbf{e}_U \\ \mathbf{e}_U \\
+        \boldsymbol{\psi}_U \\ \boldsymbol{\psi}_U
+    \end{bmatrix}
+\end{align}
 
 As primeiras $n_x n_s$ restrições exigem que os vetores $\boldsymbol{\zeta}$ sejam zero, satisfazendo aproximadamente as equações diferenciais do PCO - dadas pela equação \ref{eq:restrições-diferenciais}.
 
 
 \subsection{Colocação Trapezoidal}
+\label{subsec:colocacao-trapezoidal}
 
 Focando no método trapezoidal, a variável de controle é discretizada usando uma \textit{spline} linear 
 
@@ -199,6 +195,7 @@ Focando no método trapezoidal, a variável de controle é discretizada usando u
 
 \begin{equation}
     \mathbf{x}(t) \approx \mathbf{x}_k + \mathbf{f}_k \tau + \dfrac{\tau^2}{2h_k} (\mathbf{f}_{k+1} - \mathbf{f}_k).
+    \label{eq:spline-quadratica}
 \end{equation}
 
 \begin{figure}[H]
@@ -222,20 +219,23 @@ Focando no método trapezoidal, a variável de controle é discretizada usando u
 Desse modo, as variáveis são definidas como
 
 \begin{equation}
-    \mathbf{z}^\intercal = \left( \mathbf{x}_1, \mathbf{u}_1, \cdots, \mathbf{x}_M, \mathbf{u}_M \right)
+    \mathbf{z}^\intercal = \left( \mathbf{x}_1, \mathbf{u}_1, \cdots, \mathbf{x}_M, \mathbf{u}_M \right),
+    \label{eq:z}
 \end{equation}
 
 \noindent e as restrições
 
 \begin{equation}
-    \boldsymbol{\zeta}_k = \mathbf{x}_{k+1} - \mathbf{x}_k - \dfrac{h_k}{2} \left( \mathbf{f}_{k+1} + \mathbf{f}_k \right)
+    \boldsymbol{\zeta}_k = \mathbf{x}_{k+1} - \mathbf{x}_k - \dfrac{h_k}{2} \left( \mathbf{f}_{k+1} + \mathbf{f}_k \right),
+    \label{eq:defects}
 \end{equation}
 
 Assim, pode-se reescrever o índice de desempenho - equação \ref{eq:J} - como
 
 \begin{equation}
     J = \varphi \left[ \mathbf{x} \left( t_0 \right), \mathbf{x} \left( t_f \right), \mathbf{p}, t_0, t_f \right]
-    + \sum_{k=0}^{M-1} \dfrac{1}{2} h_k \left( L_{k+1} + L_k \right)
+    + \sum_{k=0}^{M-1} \dfrac{1}{2} h_k \left( L_{k+1} + L_k \right),
+    \label{eq:J-trapezoidal}
 \end{equation}
 
 

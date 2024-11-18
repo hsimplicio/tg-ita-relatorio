@@ -49,6 +49,24 @@
 \usepackage{multirow}
 \usepackage{float}
 \usepackage{makeglo}
+\usepackage{siunitx}
+
+% Minted para códigos
+\usepackage{minted}
+\renewcommand\listingscaption{Código Fonte}
+\renewcommand\listoflistingscaption{Lista de Códigos Fonte}
+
+% \usemintedstyle{vim}
+% \definecolor{dracula_bg}{RGB}{44, 44, 52}
+% \definecolor{dracula_highlight}{RGB}{68, 71, 90}
+% \definecolor{dracula_rule}{RGB}{68, 71, 90}
+
+% \usemintedstyle{tango}
+\definecolor{light_bg}{RGB}{246, 246, 246}
+\definecolor{light_rule}{RGB}{220, 220, 220}
+
+\usepackage{caption}
+\newenvironment{code}{\captionsetup{type=listing}}{}
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 % Espaçamento padrão de todo o documento
@@ -154,6 +172,9 @@ além de ser uma postura ética, é um sinal de autenticidade.''\\}
 % Lista de tabelas
 % \listoftables %opcional
 
+% Lista de códigos fonte
+\listoflistings
+
 % Lista de abreviaturas
 \listofabbreviations
 \input{Cap0/listaabreviaturas} %opcional
@@ -180,9 +201,13 @@ além de ser uma postura ética, é um sinal de autenticidade.''\\}
 \label{cap:metodologia}
 \input{Cap3/cap3}
 
-% \chapter{Conclusão}
-% \label{cap:conclusão}
-% \input{Cap4/cap4}
+\chapter{Resultados}
+\label{cap:resultados}
+\input{Cap4/cap4}
+
+\chapter{Conclusão}
+\label{cap:conclusão}
+\input{Cap5/cap5}
 
 % REFERENCIAS BIBLIOGRAFICAS
 \renewcommand\bibname{\itareferencesnamebabel} % renomear título do capítulo referências
@@ -194,9 +219,9 @@ além de ser uma postura ética, é um sinal de autenticidade.''\\}
 % \input{ApeA/apendiceA}
 
 % Anexos
-% \annex
-% \chapter{Exemplo de um Primeiro Anexo} % opcional
-% \input{AneA/anexoA}
+\annex
+\chapter{Arquivos de Código Fonte} % opcional
+\input{AneA/anexoA}
 
 % Glossario
 %\itaglossary

@@ -3,6 +3,9 @@
     "[python]": {
         "editor.rulers": [72]
     },
+    "[matlab]": {
+        "editor.rulers": [68]
+    },
     "[latex]": {
         "editor.wordWrap": "on"
     },
