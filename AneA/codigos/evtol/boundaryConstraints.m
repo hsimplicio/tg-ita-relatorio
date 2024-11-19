@@ -35,17 +35,26 @@ function [c, ceq] = boundaryConstraints(x0, xF, t0, tF, boundaryConditions)
     % Equality constraints
     ceq = [
            % Initial conditions
-           initialPosX - boundaryConditions.x0(1)       % x(0) = boundaryConditions.xLow(1)
-           initialPosY - boundaryConditions.x0(2)       % y(0) = boundaryConditions.x0(2)
-           initialVelX - boundaryConditions.x0(3)       % vx(0) = boundaryConditions.x0(3)
-           initialVelY - boundaryConditions.x0(4)       % vy(0) = boundaryConditions.x0(4)
-           initialEnergy - boundaryConditions.x0(5)   % E(0) = boundaryConditions.x0(5)
+           % x(0) = boundaryConditions.xLow(1)
+           initialPosX - boundaryConditions.xLow(1)
+           % y(0) = boundaryConditions.xLow(2)
+           initialPosY - boundaryConditions.xLow(2)
+           % vx(0) = boundaryConditions.xLow(3)
+           initialVelX - boundaryConditions.xLow(3)
+           % vy(0) = boundaryConditions.xLow(4)
+           initialVelY - boundaryConditions.xLow(4)
+           % E(0) = boundaryConditions.xLow(5)
+           initialEnergy - boundaryConditions.xLow(5)
 
            % Final conditions
-           finalPosX - boundaryConditions.xF(1)   % x(T) = boundaryConditions.xF(1)
-           finalPosY - boundaryConditions.xF(2)   % y(T) = boundaryConditions.xF(2)
-           finalVelX - boundaryConditions.xF(3)   % vx(T) = boundaryConditions.xF(3)
-           finalVelY - boundaryConditions.xF(4)   % vy(T) = boundaryConditions.xF(4)
+           % x(T) = boundaryConditions.xF(1)
+           finalPosX - boundaryConditions.xF(1)
+           % y(T) = boundaryConditions.xF(2)
+           finalPosY - boundaryConditions.xF(2)
+           % vx(T) = boundaryConditions.xF(3)
+           finalVelX - boundaryConditions.xF(3)
+           % vy(T) = boundaryConditions.xF(4)
+           finalVelY - boundaryConditions.xF(4)
 
            % Time bounds
            t0 - boundaryConditions.t0

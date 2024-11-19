@@ -1,11 +1,14 @@
 function [c, ceq] = pathConstraints(time, state, control, params)
     % Evaluates path constraints for the EVTOL problem
-    % Only include constraints that cannot be expressed as simple bounds
+    % Only include constraints that cannot be expressed
+    % as simple bounds
     %
     % Example of potential nonlinear constraints:
     % c = [
-    %     sqrt(x(3,:).^2 + x(4,:).^2) - v_max;  % velocity magnitude constraint
-    %     sqrt(u(1,:).^2 + u(2,:).^2) - T_max;  % total thrust constraint
+    %     sqrt(x(3,:).^2 + x(4,:).^2) - v_max;  % velocity magnitude
+    %                                           % constraint
+    %     sqrt(u(1,:).^2 + u(2,:).^2) - T_max;  % total thrust
+    %                                           % constraint
     % ];
     %
     % Inputs:

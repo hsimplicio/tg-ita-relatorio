@@ -19,7 +19,9 @@ function testEvtolDynamics()
     disp('Hover calculations:');
     disp(['    Total thrust: ' num2str(hoverControl(2)) ' N']);
     disp(['    Thrust per rotor: ' num2str(hoverControl(2) / 4) ' N']);
-    disp(['    Hover induced velocity: ' num2str(sqrt(hoverControl(2) / (8 * AIR_DENSITY * rotorArea))) ' m/s']);
+    disp(['    Hover induced velocity: ' ...
+          num2str(sqrt(hoverControl(2) / (8 * AIR_DENSITY * rotorArea))) ...
+          ' m/s']);
     disp(['    Total power (computed): ' num2str(dxHover(5)) ' W']);
 
     disp(' ');
@@ -33,10 +35,14 @@ function testEvtolDynamics()
     dxForward = evtolDynamics(xForward, uForward, params);
     disp(['    Lift force: ' num2str(lift) ' N']);
     disp(['    Drag force: ' num2str(drag) ' N']);
-    disp(['    Required thrust - horizontal: ' num2str(uForward(1)) ' N']);
-    disp(['    Required thrust - vertical: ' num2str(uForward(2)) ' N']);
-    disp(['    Horizontal acceleration: ' num2str(dxForward(3))]);
-    disp(['    Vertical acceleration: ' num2str(dxForward(4))]);
+    disp(['    Required thrust - horizontal: ' ...
+          num2str(uForward(1)) ' N']);
+    disp(['    Required thrust - vertical: ' ...
+          num2str(uForward(2)) ' N']);
+    disp(['    Horizontal acceleration: ' ...
+          num2str(dxForward(3))]);
+    disp(['    Vertical acceleration: ' ...
+          num2str(dxForward(4))]);
 
     disp(' ');
 
@@ -44,26 +50,35 @@ function testEvtolDynamics()
     xClimb = [0; 0; 20; 5; 0];
     gamma = atan2(5, 20);
     [lift, drag] = computeLiftDrag(xClimb(3), xClimb(4), params);
-    requiredThrust = [drag * cos(gamma) + lift * sin(gamma)
-                      drag * sin(gamma) - lift * cos(gamma) + mass * GRAVITY];
+    requiredThrust = [drag * cos(gamma) + lift * sin(gamma); ...
+                      drag * sin(gamma) - lift * cos(gamma) + ...
+                      mass * GRAVITY];
     climbControl = requiredThrust;
     disp('Climbing Flight Test:');
     dxClimb = evtolDynamics(xClimb, climbControl, params);
     disp(['    Lift force: ' num2str(lift) ' N']);
     disp(['    Drag force: ' num2str(drag) ' N']);
-    disp(['    Required thrust - horizontal: ' num2str(climbControl(1)) ' N']);
-    disp(['    Required thrust - vertical: ' num2str(climbControl(2)) ' N']);
-    disp(['    Horizontal acceleration: ' num2str(dxClimb(3))]);
-    disp(['    Vertical acceleration: ' num2str(dxClimb(4))]);
+    disp(['    Required thrust - horizontal: ' ...
+          num2str(climbControl(1)) ' N']);
+    disp(['    Required thrust - vertical: ' ...
+          num2str(climbControl(2)) ' N']);
+    disp(['    Horizontal acceleration: ' ...
+          num2str(dxClimb(3))]);
+    disp(['    Vertical acceleration: ' ...
+          num2str(dxClimb(4))]);
 
     disp(' ');
 
     % Verify energy model consistency
     % For hover: P = T*v_induced
     hoverThrust = hoverControl(2) / 4;  % Per rotor
-    hoverInducedVel = sqrt(hoverThrust / (2 * AIR_DENSITY * rotorArea));
-    hoverPowerTheoretical = 4 * hoverThrust * hoverInducedVel * (1 + chi);
+    hoverInducedVel = sqrt(hoverThrust / ...
+                            (2 * AIR_DENSITY * rotorArea));
+    hoverPowerTheoretical = 4 * hoverThrust * hoverInducedVel * ...
+                             (1 + chi);
     disp('Energy Model Test:');
-    disp(['    Hover power (computed): ' num2str(dxHover(5)) ' W']);
-    disp(['    Hover power (theoretical): ' num2str(hoverPowerTheoretical) ' W']);
+    disp(['    Hover power (computed): ' ...
+          num2str(dxHover(5)) ' W']);
+    disp(['    Hover power (theoretical): ' ...
+          num2str(hoverPowerTheoretical) ' W']);
 end

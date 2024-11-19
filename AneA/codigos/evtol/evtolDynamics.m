@@ -38,8 +38,10 @@ function stateDerivatives = evtolDynamics(time, state, control, params)
     % Compute aerodynamic parameters
     V = sqrt(velX.^2 + velY.^2);
     gamma = computeFlightAngle(velX, velY);
-    angleToVertical = pi / 2 - gamma;  % Angle between velocity and vertical
-    angleToHorizontal = gamma;       % Angle between velocity and horizontal
+    angleToVertical = pi / 2 - gamma;  % Angle between
+                                       % velocity and vertical
+    angleToHorizontal = gamma;  % Angle between
+                                % velocity and horizontal
 
     % Compute the aerodynamic forces
     [lift, drag] = computeLiftDrag(velX, velY, params);
@@ -49,11 +51,15 @@ function stateDerivatives = evtolDynamics(time, state, control, params)
     rotorThrustY = thrustY / 4;
 
     % Induced velocity calculations
-    hoverVelocityX = sqrt(rotorThrustX / (2 * AIR_DENSITY * rotorArea));
-    hoverVelocityY = sqrt(rotorThrustY / (2 * AIR_DENSITY * rotorArea));
+    hoverVelocityX = sqrt(rotorThrustX / ...
+                          (2 * AIR_DENSITY * rotorArea));
+    hoverVelocityY = sqrt(rotorThrustY / ...
+                          (2 * AIR_DENSITY * rotorArea));
 
-    inducedVelocityX = computeInducedVelocity(hoverVelocityX, V, angleToHorizontal);
-    inducedVelocityY = computeInducedVelocity(hoverVelocityY, V, angleToVertical);
+    inducedVelocityX = computeInducedVelocity(hoverVelocityX, ...
+                                              V, angleToHorizontal);
+    inducedVelocityY = computeInducedVelocity(hoverVelocityY, ...
+                                              V, angleToVertical);
 
     % Power calculations
     rotorPowerX = rotorThrustX .* inducedVelocityX;
@@ -67,10 +73,13 @@ function stateDerivatives = evtolDynamics(time, state, control, params)
 
     % Compute the derivatives
     stateDerivatives = [
-                        velX   % posX derivative
-                        velY   % posY derivative
-                        (thrustX - drag .* cos(gamma) - lift .* sin(gamma)) / mass   % velX derivative
-                        (thrustY - drag .* sin(gamma) + lift .* cos(gamma) - mass * GRAVITY) / mass   % velY derivative
-                        inducedPower + forwardPower   % energy derivative
+                        velX  % posX derivative
+                        velY  % posY derivative
+                        (thrustX - drag .* cos(gamma) - ...
+                        lift .* sin(gamma)) / mass  % velX derivative
+                        (thrustY - drag .* sin(gamma) + ...
+                            lift .* cos(gamma) - mass * GRAVITY) ...
+                            / mass  % velY derivative
+                        inducedPower + forwardPower  % energy derivative
                        ];
 end

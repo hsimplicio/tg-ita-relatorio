@@ -20,5 +20,7 @@ function gamma = computeFlightAngle(velX, velY)
 
     gamma(conditionX) = atan2(velY(conditionX), velX(conditionX));
 
-    gamma(~conditionX & conditionY) = sign(velY(~conditionX & conditionY)) * pi / 2;
+    gamma(~conditionX & conditionY) = sign(velY(~conditionX & ...
+                                                conditionY)) * ...
+                                                pi / 2;
 end

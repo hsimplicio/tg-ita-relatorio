@@ -218,6 +218,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
     \label{code:boundaryobjective}
 \end{code}
 
+
 \subsection{\texttt{pathObjective.m}}
 \label{sec:codigo-pathobjective}
 
@@ -234,39 +235,538 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
     \label{code:pathobjective}
 \end{code}
 
-% \section{Arquivos do problema movimento simples}
-% \label{sec:arquivos-problema-movimento-simples}
 
-% \subsection{\texttt{mainSimpleMass.m}}
-% \label{sec:codigo-mainsimplemass}
+\section{Arquivos do problema movimento simples}
+\label{sec:arquivos-problema-movimento-simples}
 
-% \begin{code}
-%     \inputminted[
-%         frame=leftline,
-%         framesep=3mm,
-%         baselinestretch=1.2,
-%         bgcolor=light_bg,
-%         rulecolor=light_rule,
-%         linenos
-%     ]{matlab}{AneA/codigos/simple_mass/mainSimpleMass.m}
-%     \caption{Arquivo principal do problema movimento simples}
-%     \label{code:mainsimplemass}
-% \end{code}
+\subsection{\texttt{mainSimpleMass.m}}
+\label{sec:codigo-mainsimplemass}
 
-% \subsection{\texttt{simpleMassDynamics.m}}
-% \label{sec:codigo-simplemassdynamics}
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/simple_mass/mainSimpleMass.m}
+    \caption{Arquivo principal do problema movimento simples}
+    \label{code:mainsimplemass}
+\end{code}
 
-% \begin{code}
-%     \inputminted[
-%         frame=leftline,
-%         framesep=3mm,
-%         baselinestretch=1.2,
-%         bgcolor=light_bg,
-%         rulecolor=light_rule,
-%         linenos
-%     ]{matlab}{AneA/codigos/simple_mass/simpleMassDynamics.m}
-%     \caption{Função \texttt{simpleMassDynamics}}
-%     \label{code:simplemassdynamics}
-% \end{code}
 
+\subsection{\texttt{simpleMassDynamics.m}}
+\label{sec:codigo-simplemassdynamics}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/simple_mass/simpleMassDynamics.m}
+    \caption{Função \texttt{simpleMassDynamics}}
+    \label{code:simplemassdynamics}
+\end{code}
+
+
+\subsection{\texttt{boundaryConstraints.m}}
+\label{sec:codigo-boundaryconstraints-simplemass}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/simple_mass/boundaryConstraints.m}
+    \caption{Função \texttt{boundaryConstraints}}
+    \label{code:boundaryconstraints-simplemass}
+\end{code}
+
+
+\subsection{\texttt{pathConstraints.m}}
+\label{sec:codigo-pathconstraints-simplemass}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/simple_mass/pathConstraints.m}
+    \caption{Função \texttt{pathConstraints}}
+    \label{code:pathconstraints-simplemass}
+\end{code}
+
+
+\subsection{\texttt{boundaryObjective.m}}
+\label{sec:codigo-boundaryobjective-simplemass}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/simple_mass/boundaryObjective.m}
+    \caption{Função \texttt{boundaryObjective}}
+    \label{code:boundaryobjective-simplemass}
+\end{code}
+
+
+\subsection{\texttt{pathObjective.m}}
+\label{sec:codigo-pathobjective-simplemass}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/simple_mass/pathObjective.m}
+    \caption{Função \texttt{pathObjective}}
+    \label{code:pathobjective-simplemass}
+\end{code}
+
+
+\subsection{\texttt{generateSimpleMassGuess.m}}
+\label{sec:codigo-generatesimplemassguess}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/simple_mass/generateSimpleMassGuess.m}
+    \caption{Função \texttt{generateSimpleMassGuess}}
+    \label{code:generatesimplemassguess}
+\end{code}
+
+
+\section{Arquivos do problema da braquistócrona}
+\label{sec:arquivos-problema-braquistocrona}
+
+\subsection{\texttt{mainBrachistochrone.m}}
+\label{sec:codigo-mainbrachistochrone}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/brachistochrone/mainBrachistochrone.m}
+    \caption{Arquivo principal do problema da braquistócrona}
+    \label{code:mainbrachistochrone}
+\end{code}
+
+
+\subsection{\texttt{brachistochroneDynamics.m}}
+\label{sec:codigo-brachistochronedynamics}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/brachistochrone/brachistochroneDynamics.m}
+    \caption{Função \texttt{brachistochroneDynamics}}
+    \label{code:brachistochronedynamics}
+\end{code}
+
+
+\subsection{\texttt{brachistochroneParams.m}}
+\label{sec:codigo-brachistochroneparams}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/brachistochrone/brachistochroneParams.m}
+    \caption{Função \texttt{brachistochroneParams}}
+    \label{code:brachistochroneparams}
+\end{code}
+
+
+\subsection{\texttt{boundaryConstraints.m}}
+\label{sec:codigo-boundaryconstraints-brachistochrone}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/brachistochrone/boundaryConstraints.m}
+    \caption{Função \texttt{boundaryConstraints}}
+    \label{code:boundaryconstraints-brachistochrone}
+\end{code}
+
+
+\subsection{\texttt{pathConstraints.m}}
+\label{sec:codigo-pathconstraints-brachistochrone}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/brachistochrone/pathConstraints.m}
+    \caption{Função \texttt{pathConstraints}}
+    \label{code:pathconstraints-brachistochrone}
+\end{code}
+
+
+\subsection{\texttt{boundaryObjective.m}}
+\label{sec:codigo-boundaryobjective-brachistochrone}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/brachistochrone/boundaryObjective.m}
+    \caption{Função \texttt{boundaryObjective}}
+    \label{code:boundaryobjective-brachistochrone}
+\end{code}
+
+
+\subsection{\texttt{pathObjective.m}}
+\label{sec:codigo-pathobjective-brachistochrone}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/brachistochrone/pathObjective.m}
+    \caption{Função \texttt{pathObjective}}
+    \label{code:pathobjective-brachistochrone}
+\end{code}
+
+
+\subsection{\texttt{generateBrachistochroneGuesses.m}}
+\label{sec:codigo-generatebrachistochroneguesses}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/brachistochrone/generateBrachistochroneGuess.m}
+    \caption{Função \texttt{generateBrachistochroneGuess}}
+    \label{code:generatebrachistochroneguess}
+\end{code}
+
+
+\subsection{\texttt{checkConstraints.m}}
+\label{sec:codigo-checkconstraints}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/brachistochrone/checkConstraints.m}
+    \caption{Função \texttt{checkConstraints}}
+    \label{code:checkconstraints}
+\end{code}
+
+
+\subsection{\texttt{compareWithAnalytical.m}}
+\label{sec:codigo-comparewithanalytical}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/brachistochrone/compareWithAnalytical.m}
+    \caption{Função \texttt{compareWithAnalytical}}
+    \label{code:comparewithanalytical}
+\end{code}
+
+
+\section{Arquivos do problema do eVTOL}
+\label{sec:arquivos-problema-evtol}
+
+\subsection{\texttt{mainEvtol.m}}
+\label{sec:codigo-mainevtol}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/mainEvtol.m}
+    \caption{Arquivo principal do problema do eVTOL}
+    \label{code:mainevtol}
+\end{code}
+
+
+\subsection{\texttt{evtolDynamics.m}}
+\label{sec:codigo-evtoldynamics}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/evtolDynamics.m}
+    \caption{Função \texttt{evtolDynamics}}
+    \label{code:evtoldynamics}
+\end{code}
+
+
+\subsection{\texttt{computeLiftDrag.m}}
+\label{sec:codigo-computeliftdrag}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/computeLiftDrag.m}
+    \caption{Função \texttt{computeLiftDrag}}
+    \label{code:computeliftdrag}
+\end{code}
+
+
+\subsection{\texttt{computeInducedVelocity.m}}
+\label{sec:codigo-computeinducedvelocity}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/computeInducedVelocity.m}
+    \caption{Função \texttt{computeInducedVelocity}}
+    \label{code:computeinducedvelocity}
+\end{code}
+
+
+\subsection{\texttt{computeFlightAngle.m}}
+\label{sec:codigo-computeflightangle}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/computeFlightAngle.m}
+    \caption{Função \texttt{computeFlightAngle}}
+    \label{code:computeflightangle}
+\end{code}
+
+
+\subsection{\texttt{evtolParams.m}}
+\label{sec:codigo-evtolparams}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/evtolParams.m}
+    \caption{Função \texttt{evtolParams}}
+    \label{code:evtolparams}
+\end{code}
+
+
+\subsection{\texttt{boundaryConstraints.m}}
+\label{sec:codigo-boundaryconstraints-evtol}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/boundaryConstraints.m}
+    \caption{Função \texttt{boundaryConstraints}}
+    \label{code:boundaryconstraints-evtol}
+\end{code}
+
+
+\subsection{\texttt{pathConstraints.m}}
+\label{sec:codigo-pathconstraints-evtol}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/pathConstraints.m}
+    \caption{Função \texttt{pathConstraints}}
+    \label{code:pathconstraints-evtol}
+\end{code}
+
+
+\subsection{\texttt{boundaryObjective.m}}
+\label{sec:codigo-boundaryobjective-evtol}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/boundaryObjective.m}
+    \caption{Função \texttt{boundaryObjective}}
+    \label{code:boundaryobjective-evtol}
+\end{code}
+
+
+\subsection{\texttt{pathObjective.m}}
+\label{sec:codigo-pathobjective-evtol}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/pathObjective.m}
+    \caption{Função \texttt{pathObjective}}
+    \label{code:pathobjective-evtol}
+\end{code}
+
+
+\subsection{\texttt{physicalInitialGuess.m}}
+\label{sec:codigo-physicalinitialguess}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/physicalInitialGuess.m}
+    \caption{Função \texttt{physicalInitialGuess}}
+    \label{code:physicalinitialguess}
+\end{code}
+
+
+\subsection{\texttt{checkConstraints.m}}
+\label{sec:codigo-checkconstraints-evtol}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/checkConstraints.m}
+    \caption{Função \texttt{checkConstraints}}
+    \label{code:checkconstraints-evtol}
+\end{code}
+
+\subsection{\texttt{testAeroForces.m}}
+\label{sec:codigo-testaeroforces}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/testAeroForces.m}
+    \caption{Função \texttt{testAeroForces}}
+    \label{code:testaeroforces}
+\end{code}
+
+
+\subsection{\texttt{testEvtolDynamics.m}}
+\label{sec:codigo-testevtoldynamics}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/evtol/testEvtolDynamics.m}
+    \caption{Função \texttt{testEvtolDynamics}}
+    \label{code:testevtoldynamics}
+\end{code}
 

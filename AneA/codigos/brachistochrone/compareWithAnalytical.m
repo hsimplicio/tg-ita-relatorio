@@ -12,8 +12,10 @@ function compareWithAnalytical(z, plotFlag)
     % Calculate cycloid parameters
 
     % Calculate final angle
-    f = @(theta_f) xf / yf - (theta_f - sin(theta_f)) / (1 - cos(theta_f));
-    theta_f = fsolve(f, pi / 2, optimoptions('fsolve', 'Display', 'off'));
+    f = @(theta_f) xf / yf - ...
+    (theta_f - sin(theta_f)) / (1 - cos(theta_f));
+    theta_f = fsolve(f, pi / 2, ...
+                     optimoptions('fsolve', 'Display', 'off'));
 
     % Calculate radius
     R = yf / (1 - cos(theta_f));
@@ -25,10 +27,13 @@ function compareWithAnalytical(z, plotFlag)
 
     % Plot comparison
     figure('Name', 'Comparison with Analytical Solution');
-    plot(z.state(1, :), z.state(2, :), 'b-', 'LineWidth', 2, 'DisplayName', 'Numérica');
+    plot(z.state(1, :), z.state(2, :), 'b-', ...
+         'LineWidth', 2, 'DisplayName', 'Numérica');
     hold on;
-    plot(x_analytical, y_analytical, 'r--', 'LineWidth', 2, 'DisplayName', 'Analítica');
-    plot([0 xf], [0 yf], 'k.', 'MarkerSize', 20, 'DisplayName', 'Pontos Iniciais e Finais');
+    plot(x_analytical, y_analytical, 'r--', ...
+         'LineWidth', 2, 'DisplayName', 'Analítica');
+    plot([0 xf], [0 yf], 'k.', ...
+         'MarkerSize', 20, 'DisplayName', 'Pontos Iniciais e Finais');
     grid on;
     xlabel('x [m]');
     ylabel('y [m]');

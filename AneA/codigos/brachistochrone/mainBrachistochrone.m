@@ -1,4 +1,5 @@
-% Brachistochrone problem: Find the path of fastest descent between two points
+% Brachistochrone problem:
+% Find the path of fastest descent between two points
 clear;
 clc;
 close all;
@@ -7,7 +8,9 @@ close all;
 addpath('..');
 
 %% Create problem instance
-nx = 3;  % States: [x; y; v] (horizontal position, vertical position, velocity)
+nx = 3;  % States: [x; y; v] (horizontal position,
+         %                    vertical position,
+         %                    velocity)
 nu = 1;  % Control: [theta] (angle of the path)
 problem = TrajectoryProblem(nx, nu);
 
@@ -24,8 +27,8 @@ tF = 1;  % Initial guess for final time (will be optimized)
 problem.setTimeBoundaryConditions(t0, tF);
 
 %% Set state bounds
-xLow = [0; -5; 0];     % Lower bounds: x≥0, y≥-5, v≥0
-xUpp = [5; 0; 15];      % Upper bounds: x≤5, y≤0, v≤15
+xLow = [0; -5; 0];     % Lower bounds: x>=0, y>=-5, v>=0
+xUpp = [5; 0; 15];      % Upper bounds: x<=5, y<=0, v<=15
 problem.setStateBounds(xLow, xUpp);
 
 %% Set control bounds
@@ -39,7 +42,8 @@ problem.setParameters(params);
 
 %% Set boundary conditions
 x0 = [0; 0; 0];        % Start at origin with zero velocity
-xF = [5; -5; xUpp(3)]; % End at (5,-5) with free final velocity up to vMax
+xF = [5; -5; xUpp(3)]; % End at (5,-5)
+                       % with free final velocity up to vMax
 problem.setBoundaryConditions(x0, xF);
 
 %% Set scaling
@@ -101,7 +105,8 @@ disp('Target final state:');
 disp(xF');
 
 % Check energy conservation
-E = 0.5 * solution(end).z.state(3, :).^2 + params.GRAVITY * solution(end).z.state(2, :);
+E = 0.5 * solution(end).z.state(3, :).^2 + ...
+params.GRAVITY * solution(end).z.state(2, :);
 disp('Energy variation:');
 disp(['Max: ', num2str(max(E) - min(E))]);
 

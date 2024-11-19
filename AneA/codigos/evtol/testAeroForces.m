@@ -39,9 +39,11 @@ function testAeroForces()
 
     % Plot Lift
     subplot(2, 2, 1);
-    plot(alphaRange * 180 / pi, lift, 'b-', 'LineWidth', 2, 'DisplayName', 'Computed Lift');
+    plot(alphaRange * 180 / pi, lift, 'b-', 'LineWidth', 2, ...
+         'DisplayName', 'Computed Lift');
     hold on;
-    plot(alphaRange * 180 / pi, linearLift, 'r--', 'LineWidth', 1.5, 'DisplayName', 'Linear Theory');
+    plot(alphaRange * 180 / pi, linearLift, 'r--', 'LineWidth', 1.5, ...
+         'DisplayName', 'Linear Theory');
     grid on;
     xlabel('Angle of Attack (degrees)');
     ylabel('Lift Force (N)');
@@ -72,9 +74,11 @@ function testAeroForces()
     alphaMaxL = alphaRange(maxLIdx) * 180 / pi;
 
     fprintf('\nKey Performance Parameters:\n');
-    fprintf('Maximum L/D Ratio: %.2f at %.1f degrees\n', maxLD, alphaMaxLD);
+    fprintf('Maximum L/D Ratio: %.2f at %.1f degrees\n', ...
+            maxLD, alphaMaxLD);
     fprintf('Maximum Lift: %.2f N at %.1f degrees\n', maxL, alphaMaxL);
-    fprintf('Stall Angle: %.1f degrees (theoretical)\n', wingAlpha0 * 180 / pi);
+    fprintf('Stall Angle: %.1f degrees (theoretical)\n', ...
+            wingAlpha0 * 180 / pi);
 
     % Verify transition between linear and flat plate models
     subplot(2, 2, 4);
@@ -84,15 +88,20 @@ function testAeroForces()
 
     sigMinus = exp(-M * (alphaRange - alpha0));
     sigPlus = exp(M * (alphaRange + alpha0));
-    sigma = (1 + sigMinus + sigPlus) ./ ((1 + sigMinus) .* (1 + sigPlus));
+    sigma = (1 + sigMinus + sigPlus) ./ ...
+            ((1 + sigMinus) .* (1 + sigPlus));
 
-    flatPlateCL = 2 * sign(alphaRange) .* sin(alphaRange).^2 .* cos(alphaRange);
+    flatPlateCL = 2 * sign(alphaRange) .* ...
+                  sin(alphaRange).^2 .* cos(alphaRange);
     CLCombined = sigma .* flatPlateCL + (1 - sigma) .* straightCL;
 
-    plot(alphaRange * 180 / pi, straightCL, 'r--', 'LineWidth', 1.5, 'DisplayName', 'Linear Model');
+    plot(alphaRange * 180 / pi, straightCL, 'r--', 'LineWidth', 1.5, ...
+         'DisplayName', 'Linear Model');
     hold on;
-    plot(alphaRange * 180 / pi, flatPlateCL, 'g--', 'LineWidth', 1.5, 'DisplayName', 'Flat Plate');
-    plot(alphaRange * 180 / pi, CLCombined, 'b-', 'LineWidth', 2, 'DisplayName', 'Combined Model');
+    plot(alphaRange * 180 / pi, flatPlateCL, 'g--', 'LineWidth', 1.5, ...
+         'DisplayName', 'Flat Plate');
+    plot(alphaRange * 180 / pi, CLCombined, 'b-', 'LineWidth', 2, ...
+         'DisplayName', 'Combined Model');
     grid on;
     xlabel('Angle of Attack (degrees)');
     ylabel('Lift Coefficient');

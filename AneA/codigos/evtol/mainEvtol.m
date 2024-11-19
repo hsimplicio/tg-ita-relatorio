@@ -49,13 +49,13 @@ problem.setBoundaryConditions(x0, xF);
 problem.setDynamics(@evtolDynamics);
 
 % Set objective
-hBoundaryObjective = @boundaryObjective;    % φ(·) - Mayer Term
-hPathObjective = [];                        % L(·) - integrand of Lagrange Term
+hBoundaryObjective = @boundaryObjective;  % Mayer Term
+hPathObjective = [];  % integrand of Lagrange Term
 problem.setObjective(hBoundaryObjective, hPathObjective);
 
 % Set constraints
-hBoundaryConstraint = @boundaryConstraints;  % h(·) - Boundary Constraints
-hPathConstraint = [];                       % g(·) - Path Constraints
+hBoundaryConstraint = @boundaryConstraints;  % Boundary Constraints
+hPathConstraint = [];  % Path Constraints
 problem.setConstraints(hBoundaryConstraint, hPathConstraint);
 
 %% Set solver options

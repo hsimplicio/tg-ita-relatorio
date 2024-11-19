@@ -45,10 +45,13 @@ function [lift, drag] = computeLiftDrag(velX, velY, params)
     % Apply sigmoid function to merge linear and flat plate models
     sigMinus = exp(-M * (alphaWing - alpha0));
     sigPlus = exp(M * (alphaWing + alpha0));
-    sigma = (1 + sigMinus + sigPlus) ./ ((1 + sigMinus) .* (1 + sigPlus));
+    sigma = (1 + sigMinus + sigPlus) ./ ...
+            ((1 + sigMinus) .* (1 + sigPlus));
 
     CD = CDpWing + straightCL.^2 / (pi * eWing * ARWing);
-    CL = sigma .* (2 * sign(alphaWing) .* sin(alphaWing).^2 .* cos(alphaWing)) + (1 - sigma) .* straightCL;
+    CL = sigma .* (2 * sign(alphaWing) .* ...
+                   sin(alphaWing).^2 .* cos(alphaWing)) + ...
+        (1 - sigma) .* straightCL;
 
     V = sqrt(velX.^2 + velY.^2);
 
