@@ -1,6 +1,6 @@
 Relembrando, o objetivo deste trabalho é criar uma biblioteca no MATLAB que permita a resolução de problemas de otimização de trajetória de forma simplificada, de forma que o usuário precise apenas modelar o problema, sem a necessidade de implementar a lógica da solução numérica. Para isso, é necessário que a biblioteca forneça uma interface de dados, de modo a permitir que o usuário entre com a modelagem do seu problema. Além disso, deve-se implementar a colocação trapezoidal como método de solução.
 
-Para validação da implementação a ser realizada, foram implementadas as soluções para alguns problemas exemplos. Tais problemas incluem o estudo de otimização de trajetória de um movimento simples em uma dimensão e braquistócrona, que são problemas clássicos na literatura de otimização de trajetórias, e o estudo de otimização de trajetória de subida de eVTOL em \cite{costa_otimizacao_2023}, o qual utiliza o software PSOPT citado na Seção \ref{sec:rev-bibliografica}.
+Para validação da implementação a ser realizada, foram implementadas as soluções para alguns problemas exemplos. Tais problemas incluem o estudo de otimização de trajetória de um movimento simples em uma dimensão, o problema de pêndulo invertido, o problema de manobra de mudança de faixa e a braquistócrona, que são problemas clássicos na literatura de otimização de trajetórias, além do estudo de otimização de trajetória de subida de eVTOL em \cite{costa_otimizacao_2023}, o qual utiliza o software PSOPT citado na Seção \ref{sec:rev-bibliografica}.
 
 \section{Interface de Dados}
 \label{sec:interface-dados}
@@ -283,6 +283,116 @@ Por fim, o problema consiste em encontrar a trajetória que minimiza o quadrado 
     J = \int_{t_0}^{t_f} \left[ F^2 \right] dt.
     \label{eq:movimento-simples-J}
 \end{equation}
+
+
+\subsection{Pêndulo invertido}
+\label{subsec:pendulo-invertido}
+
+O problema do pêndulo invertido envolve o controle de um pêndulo do seu ponto de equilíbrio estável (pendendo para baixo) até seu ponto de equilíbrio instável (apontando para cima), minimizando o esforço de controle. Este é um problema clássico em teoria de controle e robótica.
+
+O sistema consiste em um pêndulo de comprimento $l$ e massa $m$, afetado pela gravidade $g$ e amortecimento $b$, conforme Figura \ref{fig:pendulo-invertido}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{Cap3/figuras/pendulo-invertido.pdf}
+    \caption{Diagrama de forças no pêndulo invertido}
+    \label{fig:pendulo-invertido}
+\end{figure}
+
+Os vetores de estado, controle e dinâmica do sistema são descritos pelas Equações \ref{eq:pendulo-invertido}.
+
+\begin{equation}
+    \mathbf{x} = \begin{bmatrix}
+        \theta \\
+        \omega
+    \end{bmatrix},
+    \qquad
+    \mathbf{u} = \begin{bmatrix}
+        \tau
+    \end{bmatrix},
+    \qquad
+    \dot{\mathbf{x}} = \begin{bmatrix}
+        \omega \\
+        \dfrac{\tau - mgl\sin(\theta) - b\omega}{ml^2}
+    \end{bmatrix},
+    \label{eq:pendulo-invertido}
+\end{equation}
+
+\noindent onde $\theta$ é o ângulo em relação à vertical para cima, $\omega$ é a velocidade angular e $\tau$ é o torque aplicado.
+
+Por fim, o problema consiste em encontrar a trajetória que minimiza o esforço de controle, conforme Equação \ref{eq:pendulo-invertido-J}.
+
+\begin{equation}
+    J = \int_0^{t_f} \tau^2 dt
+    \label{eq:pendulo-invertido-J}
+\end{equation}
+
+\noindent sujeito às condições de contorno descritas pelas Equações \ref{eq:pendulo-invertido-condicoes-contorno}.
+
+\begin{equation}
+    \underbrace{\mathbf{x}(0) = \begin{bmatrix} \pi \\ 0 \end{bmatrix}}_{\text{pendendo para baixo em repouso}}
+    \qquad
+    \underbrace{\mathbf{x}(t_f) = \begin{bmatrix} 0 \\ 0 \end{bmatrix}}_{\text{apontando para cima em repouso}}
+    \label{eq:pendulo-invertido-condicoes-contorno}
+\end{equation}
+
+
+\subsection{Manobra de mudança de faixa}
+\label{subsec:manobra-mudanca-faixa}
+
+O problema de mudança de faixa envolve encontrar uma trajetória ótima para um veículo mudar de faixa enquanto mantém o conforto (minimizando a aceleração) e mantendo-se próximo a uma velocidade longitudinal desejada, conforme ilustrado na Figura \ref{fig:manobra-mudanca-faixa}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Cap3/figuras/manobra-mudanca-faixa.pdf}
+    \caption{Diagrama de forças na manobra de mudança de faixa}
+    \label{fig:manobra-mudanca-faixa}
+\end{figure}
+
+O sistema modela um veículo se movendo em um plano 2D, onde consideramos sua posição e velocidade nas direções longitudinal (x) e lateral (y), conforme Equação \ref{eq:manobra-mudanca-faixa}.
+
+\begin{equation}
+    \mathbf{x} = \begin{bmatrix}
+        x \\
+        y \\
+        v_x \\
+        v_y
+    \end{bmatrix},
+    \qquad
+    \mathbf{u} = \begin{bmatrix}
+        a_x \\
+        a_y
+    \end{bmatrix},
+    \qquad
+    \dot{\mathbf{x}} = \begin{bmatrix}
+        v_x \\
+        v_y \\
+        a_x \\
+        a_y
+    \end{bmatrix},
+    \label{eq:manobra-mudanca-faixa}
+\end{equation}
+
+\noindent onde $x$ é a posição longitudinal, $y$ é a posição lateral, $v_x$ é a velocidade longitudinal, $v_y$ é a velocidade lateral, $a_x$ é a aceleração longitudinal e $a_y$ é a aceleração lateral.
+
+Por fim, o problema consiste em encontrar a trajetória que minimiza a combinação da minimização da aceleração (conforto) e a manutenção da velocidade alvo, conforme Equação \ref{eq:manobra-mudanca-faixa-J}.
+
+\begin{equation}
+    J = \int_0^{t_f} \left[w_1(a_x^2 + a_y^2) + w_2(v_x - v_{alvo})^2\right] dt
+    \label{eq:manobra-mudanca-faixa-J}
+\end{equation}
+
+\noindent onde $w_1$ é o peso para minimização da aceleração e $w_2$ é o peso para manutenção da velocidade alvo, sendo $v_{alvo}$ a velocidade longitudinal desejada. O problema é sujeito às condições de contorno descritas pelas Equações \ref{eq:manobra-mudanca-faixa-condicoes-contorno}.
+
+\begin{equation}
+    \underbrace{\mathbf{x}(0) = \begin{bmatrix} 0 \\ 0 \\ v_{alvo} \\ 0 \end{bmatrix}}_{\text{início na faixa esquerda}}
+    \qquad
+    \underbrace{\mathbf{x}(t_f) = \begin{bmatrix} x_f \\ w_{faixa} \\ v_{alvo} \\ 0 \end{bmatrix}}_{\text{fim na faixa direita}}
+    \label{eq:manobra-mudanca-faixa-condicoes-contorno}
+\end{equation}
+
+\noindent onde $w_{faixa}$ é a largura da faixa.
+
 
 \subsection{Braquistócrona}
 \label{subsec:braquistocrona}

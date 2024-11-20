@@ -24,6 +24,34 @@ Como opções do solver, foram utilizados $n=30$ pontos de colocação, sem nece
 \end{figure}
 
 
+\section{Pêndulo invertido}
+\label{sec:resultados-pendulo-invertido}
+
+Para a resolução deste problema, utilizou-se $m=1 \, \si{\kilo\gram}$, $l=0,5 \, \si{\meter}$, $b=0,1 \, \si{\newton\second\per\meter}$ e $g=9,81 \, \si{\meter\per\second\squared}$ como parâmetros. Não foi necessário utilizar um chute inicial elaborado, uma vez que o solver encontrou a solução ótima sem dificuldades.
+
+Como opções do solver, utilizou-se uma sequência de refinamento da malha, com $n=[30, 60]$ pontos de colocação. Além disso, apenas aumentou-se o número máximo de avaliações da função por iteração para que o solver convergisse para a solução ótima. O resultado é apresentado na Figura \ref{fig:resultados-pendulo-invertido}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Cap4/figuras/pendulo-invertido.pdf}
+    \caption{Trajetória ótima do problema de pêndulo invertido.}
+    \label{fig:resultados-pendulo-invertido}
+\end{figure}
+
+\section{Manobra de mudança de faixa}
+\label{sec:resultados-manobra-mudanca-faixa}
+
+Como parâmetros para a resolução deste problema, utilizou-se $a_{max}=2 \, \si{\meter\per\second\squared}$, $v_{alvo}=15 \, \si{\meter\per\second}$, $w_{faixa}=3,5 \, \si{\meter}$ e $x_f=75 \, \si{\meter}$ como parâmetros. Também não foi necessário utilizar um chute inicial elaborado, uma vez que o solver encontrou a solução ótima sem dificuldades.
+
+Como opções do solver, utilizou-se uma sequência de refinamento da malha, com $n=[20, 40, 80]$ pontos de colocação. Além disso, assim como no problema do pêndulo invertido, apenas ajustou-se o número máximo de avaliações da função por iteração para que o solver convergisse para a solução ótima. O resultado é apresentado na Figura \ref{fig:resultados-manobra-mudanca-faixa}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.77\textwidth]{Cap4/figuras/manobra-mudanca-faixa.pdf}
+    \caption{Trajetória ótima do problema de manobra de mudança de faixa.}
+    \label{fig:resultados-manobra-mudanca-faixa}
+\end{figure}
+
 \section{Braquistócrona}
 \label{sec:resultados-braquistocrona}
 

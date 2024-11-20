@@ -147,7 +147,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/template/templateDynamics.m}
-    \caption{Função \texttt{templateDynamics}}
+    \caption{Função \texttt{templateDynamics} do template}
     \label{code:templatedynamics}
 \end{code}
 
@@ -164,7 +164,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/template/templateParams.m}
-    \caption{Função \texttt{templateParams}}
+    \caption{Função \texttt{templateParams} do template}
     \label{code:templateparams}
 \end{code}
 
@@ -180,7 +180,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/template/boundaryConstraints.m}
-    \caption{Função \texttt{boundaryConstraints}}
+    \caption{Função \texttt{boundaryConstraints} do template}
     \label{code:boundaryconstraints}
 \end{code}
 
@@ -197,7 +197,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/template/pathConstraints.m}
-    \caption{Função \texttt{pathConstraints}}
+    \caption{Função \texttt{pathConstraints} do template}
     \label{code:pathconstraints}
 \end{code}
 
@@ -214,7 +214,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/template/boundaryObjective.m}
-    \caption{Função \texttt{boundaryObjective}}
+    \caption{Função \texttt{boundaryObjective} do template}
     \label{code:boundaryobjective}
 \end{code}
 
@@ -231,7 +231,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/template/pathObjective.m}
-    \caption{Função \texttt{pathObjective}}
+    \caption{Função \texttt{pathObjective} do template}
     \label{code:pathobjective}
 \end{code}
 
@@ -268,7 +268,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/simple_mass/simpleMassDynamics.m}
-    \caption{Função \texttt{simpleMassDynamics}}
+    \caption{Função \texttt{simpleMassDynamics} do problema movimento simples}
     \label{code:simplemassdynamics}
 \end{code}
 
@@ -285,7 +285,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/simple_mass/boundaryConstraints.m}
-    \caption{Função \texttt{boundaryConstraints}}
+    \caption{Função \texttt{boundaryConstraints} do problema movimento simples}
     \label{code:boundaryconstraints-simplemass}
 \end{code}
 
@@ -302,7 +302,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/simple_mass/pathConstraints.m}
-    \caption{Função \texttt{pathConstraints}}
+    \caption{Função \texttt{pathConstraints} do problema movimento simples}
     \label{code:pathconstraints-simplemass}
 \end{code}
 
@@ -319,7 +319,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/simple_mass/boundaryObjective.m}
-    \caption{Função \texttt{boundaryObjective}}
+    \caption{Função \texttt{boundaryObjective} do problema movimento simples}
     \label{code:boundaryobjective-simplemass}
 \end{code}
 
@@ -336,7 +336,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/simple_mass/pathObjective.m}
-    \caption{Função \texttt{pathObjective}}
+    \caption{Função \texttt{pathObjective} do problema movimento simples}
     \label{code:pathobjective-simplemass}
 \end{code}
 
@@ -353,8 +353,134 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/simple_mass/generateSimpleMassGuess.m}
-    \caption{Função \texttt{generateSimpleMassGuess}}
+    \caption{Função \texttt{generateSimpleMassGuess} do problema movimento simples}
     \label{code:generatesimplemassguess}
+\end{code}
+
+
+\section{Arquivos do problema do pêndulo invertido}
+\label{sec:arquivos-problema-pendulo-invertido}
+
+\subsection{\texttt{mainPendulumSwingup.m}}
+\label{sec:codigo-mainpendulumswingup}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/pendulum_swingup/mainPendulumSwingup.m}
+    \caption{Arquivo principal do problema do pêndulo invertido}
+    \label{code:mainpendulumswingup}
+\end{code}
+
+
+\subsection{\texttt{pendulumDynamics.m}}
+\label{sec:codigo-pendulumdynamics}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/pendulum_swingup/pendulumDynamics.m}
+    \caption{Função \texttt{pendulumDynamics} do problema do pêndulo invertido}
+    \label{code:pendulumdynamics}
+\end{code}
+
+
+
+\subsection{\texttt{pathObjective.m}}
+\label{sec:codigo-pathobjective-pendulum}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/pendulum_swingup/pathObjective.m}
+    \caption{Função \texttt{pathObjective} do problema do pêndulo invertido}
+    \label{code:pathobjective-pendulum}
+\end{code}
+
+
+\section{Arquivos do problema da manobra de mudança de faixa}
+\label{sec:arquivos-problema-manobra-mudanca-faixa}
+
+\subsection{\texttt{mainLaneChange.m}}
+\label{sec:codigo-mainlanechange}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/lane_change/mainLaneChange.m}
+    \caption{Arquivo principal do problema da manobra de mudança de faixa}
+    \label{code:mainlanechange}
+\end{code}
+
+
+\subsection{\texttt{carDynamics.m}}
+\label{sec:codigo-cardynamics}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/lane_change/carDynamics.m}
+    \caption{Função \texttt{carDynamics} do problema da manobra de mudança de faixa}
+    \label{code:cardynamics}
+\end{code}
+
+
+\subsection{\texttt{boundaryConstraints.m}}
+\label{sec:codigo-boundaryconstraints-lanechange}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/lane_change/boundaryConstraints.m}
+    \caption{Função \texttt{boundaryConstraints} do problema da manobra de mudança de faixa}
+    \label{code:boundaryconstraints-lanechange}
+\end{code}
+
+
+\subsection{\texttt{pathObjective.m}}
+\label{sec:codigo-pathobjective-lanechange}
+
+\begin{code}
+    \inputminted[
+        frame=leftline,
+        framesep=3mm,
+        baselinestretch=1.2,
+        bgcolor=light_bg,
+        rulecolor=light_rule,
+        linenos
+    ]{matlab}{AneA/codigos/lane_change/pathObjective.m}
+    \caption{Função \texttt{pathObjective} do problema da manobra de mudança de faixa}
+    \label{code:pathobjective-lanechange}
 \end{code}
 
 
@@ -390,7 +516,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/brachistochrone/brachistochroneDynamics.m}
-    \caption{Função \texttt{brachistochroneDynamics}}
+    \caption{Função \texttt{brachistochroneDynamics} do problema da braquistócrona}
     \label{code:brachistochronedynamics}
 \end{code}
 
@@ -407,7 +533,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/brachistochrone/brachistochroneParams.m}
-    \caption{Função \texttt{brachistochroneParams}}
+    \caption{Função \texttt{brachistochroneParams} do problema da braquistócrona}
     \label{code:brachistochroneparams}
 \end{code}
 
@@ -424,7 +550,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/brachistochrone/boundaryConstraints.m}
-    \caption{Função \texttt{boundaryConstraints}}
+    \caption{Função \texttt{boundaryConstraints} do problema da braquistócrona}
     \label{code:boundaryconstraints-brachistochrone}
 \end{code}
 
@@ -441,7 +567,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/brachistochrone/pathConstraints.m}
-    \caption{Função \texttt{pathConstraints}}
+    \caption{Função \texttt{pathConstraints} do problema da braquistócrona}
     \label{code:pathconstraints-brachistochrone}
 \end{code}
 
@@ -458,7 +584,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/brachistochrone/boundaryObjective.m}
-    \caption{Função \texttt{boundaryObjective}}
+    \caption{Função \texttt{boundaryObjective} do problema da braquistócrona}
     \label{code:boundaryobjective-brachistochrone}
 \end{code}
 
@@ -475,7 +601,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/brachistochrone/pathObjective.m}
-    \caption{Função \texttt{pathObjective}}
+    \caption{Função \texttt{pathObjective} do problema da braquistócrona}
     \label{code:pathobjective-brachistochrone}
 \end{code}
 
@@ -492,7 +618,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/brachistochrone/generateBrachistochroneGuess.m}
-    \caption{Função \texttt{generateBrachistochroneGuess}}
+    \caption{Função \texttt{generateBrachistochroneGuess} do problema da braquistócrona}
     \label{code:generatebrachistochroneguess}
 \end{code}
 
@@ -509,7 +635,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/brachistochrone/checkConstraints.m}
-    \caption{Função \texttt{checkConstraints}}
+    \caption{Função \texttt{checkConstraints} do problema da braquistócrona}
     \label{code:checkconstraints}
 \end{code}
 
@@ -526,7 +652,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/brachistochrone/compareWithAnalytical.m}
-    \caption{Função \texttt{compareWithAnalytical}}
+    \caption{Função \texttt{compareWithAnalytical} do problema da braquistócrona}
     \label{code:comparewithanalytical}
 \end{code}
 
@@ -563,7 +689,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/evtolDynamics.m}
-    \caption{Função \texttt{evtolDynamics}}
+    \caption{Função \texttt{evtolDynamics} do problema do eVTOL}
     \label{code:evtoldynamics}
 \end{code}
 
@@ -580,7 +706,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/computeLiftDrag.m}
-    \caption{Função \texttt{computeLiftDrag}}
+    \caption{Função \texttt{computeLiftDrag} do problema do eVTOL}
     \label{code:computeliftdrag}
 \end{code}
 
@@ -597,7 +723,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/computeInducedVelocity.m}
-    \caption{Função \texttt{computeInducedVelocity}}
+    \caption{Função \texttt{computeInducedVelocity} do problema do eVTOL}
     \label{code:computeinducedvelocity}
 \end{code}
 
@@ -614,7 +740,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/computeFlightAngle.m}
-    \caption{Função \texttt{computeFlightAngle}}
+    \caption{Função \texttt{computeFlightAngle} do problema do eVTOL}
     \label{code:computeflightangle}
 \end{code}
 
@@ -631,7 +757,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/evtolParams.m}
-    \caption{Função \texttt{evtolParams}}
+    \caption{Função \texttt{evtolParams} do problema do eVTOL}
     \label{code:evtolparams}
 \end{code}
 
@@ -648,7 +774,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/boundaryConstraints.m}
-    \caption{Função \texttt{boundaryConstraints}}
+    \caption{Função \texttt{boundaryConstraints} do problema do eVTOL}
     \label{code:boundaryconstraints-evtol}
 \end{code}
 
@@ -665,7 +791,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/pathConstraints.m}
-    \caption{Função \texttt{pathConstraints}}
+    \caption{Função \texttt{pathConstraints} do problema do eVTOL}
     \label{code:pathconstraints-evtol}
 \end{code}
 
@@ -682,7 +808,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/boundaryObjective.m}
-    \caption{Função \texttt{boundaryObjective}}
+    \caption{Função \texttt{boundaryObjective} do problema do eVTOL}
     \label{code:boundaryobjective-evtol}
 \end{code}
 
@@ -699,7 +825,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/pathObjective.m}
-    \caption{Função \texttt{pathObjective}}
+    \caption{Função \texttt{pathObjective} do problema do eVTOL}
     \label{code:pathobjective-evtol}
 \end{code}
 
@@ -716,7 +842,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/physicalInitialGuess.m}
-    \caption{Função \texttt{physicalInitialGuess}}
+    \caption{Função \texttt{physicalInitialGuess} do problema do eVTOL}
     \label{code:physicalinitialguess}
 \end{code}
 
@@ -733,7 +859,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/checkConstraints.m}
-    \caption{Função \texttt{checkConstraints}}
+    \caption{Função \texttt{checkConstraints} do problema do eVTOL}
     \label{code:checkconstraints-evtol}
 \end{code}
 
@@ -749,7 +875,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/testAeroForces.m}
-    \caption{Função \texttt{testAeroForces}}
+    \caption{Função \texttt{testAeroForces} do problema do eVTOL}
     \label{code:testaeroforces}
 \end{code}
 
@@ -766,7 +892,7 @@ Nessa seção, serão apresentados os arquivos de código fonte do projeto. Os m
         rulecolor=light_rule,
         linenos
     ]{matlab}{AneA/codigos/evtol/testEvtolDynamics.m}
-    \caption{Função \texttt{testEvtolDynamics}}
+    \caption{Função \texttt{testEvtolDynamics} do problema do eVTOL}
     \label{code:testevtoldynamics}
 \end{code}
 
